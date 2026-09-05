@@ -260,3 +260,38 @@ def test_every_documented_call_matches_the_real_signature(where, doc):
                     f"{inspect.signature(fn)}, {exc}") from exc
             checked += 1
     assert checked, f"{doc}: no calls to the public API were checked"
+
+
+def test_the_sdist_contains_nothing_outside_the_package():
+    """A source distribution built from the project root must not sweep in its neighbours.
+
+    setuptools auto-includes a top-level `tests/` directory, and this package lives inside the
+    working tree of the audit it was extracted from. `python -m build` from the project root
+    therefore put the audit's whole 41-file suite into the tarball, including 63 KB of assertions
+    about an unpublished manuscript, and grew it from 19 KB to 128 KB. Building from a clean
+    `git archive` avoided it, but only if you remembered to; `MANIFEST.in` now prunes it, and this
+    checks the result rather than the intention.
+
+    Skips when nothing has been built, so it costs nothing in CI.
+    """
+    import glob
+    import tarfile
+
+    tarballs = glob.glob(os.path.join(ROOT, "dist", "*.tar.gz"))
+    if not tarballs:
+        pytest.skip("no sdist built")
+    newest = max(tarballs, key=os.path.getmtime)
+    with tarfile.open(newest) as tf:
+        names = [m.name for m in tf.getmembers() if m.isfile()]
+
+    assert names, f"{os.path.basename(newest)} is empty"
+    root = names[0].split("/")[0]
+    allowed_top = {"LICENSE", "README.md", "CITATION.cff", "MANIFEST.in", "pyproject.toml",
+                   "setup.cfg", "PKG-INFO"}
+    strays = []
+    for n in names:
+        rel = n[len(root) + 1:]
+        if rel.startswith(("groupeval/", "groupeval.egg-info/")) or rel in allowed_top:
+            continue
+        strays.append(rel)
+    assert not strays, f"the sdist carries files from outside the package: {sorted(strays)[:10]}"

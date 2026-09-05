@@ -1,0 +1,28 @@
+# What goes into the source distribution.
+#
+# This file exists because the sdist is NOT safe by default here. setuptools auto-includes a
+# top-level `tests/` directory, and this repository is checked out inside the polyp benchmark
+# audit's own working tree, so a plain `python -m build` from the project root swept the audit's
+# entire 41-file suite into the tarball, `test_paper_draft.py` included: 63 KB of assertions about
+# an unpublished manuscript, in a package about to be uploaded to PyPI. The tarball went from
+# 19 KB to 128 KB and would have published the audit.
+#
+# Building from a clean `git archive` avoided it, but that is a procedure someone has to remember.
+# Pruning here makes the build correct from any directory, and
+# `groupeval/tests/test_packaging.py` asserts the result.
+
+include LICENSE
+include README.md
+include CITATION.cff
+include pyproject.toml
+recursive-include groupeval *.py *.md
+
+prune tests
+prune src
+prune results
+prune data
+prune logs
+prune figures
+prune node_modules
+global-exclude *.py[cod]
+global-exclude __pycache__
