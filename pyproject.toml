@@ -26,6 +26,7 @@ dev = ["pytest>=7", "ruff>=0.4"]
 
 [project.urls]
 Source = "https://github.com/SamirHossain099/groupeval"
+Archive = "https://doi.org/10.5281/zenodo.22347243"
 
 [tool.setuptools]
 packages = ["groupeval"]

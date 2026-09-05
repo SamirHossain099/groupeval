@@ -219,17 +219,23 @@ def test_nothing_the_package_ships_is_ignored():
         assert needed not in lines, f".gitignore excludes {needed}, which is part of the artifact"
 
 
-@pytest.mark.parametrize("doc", ["README.md", "EXAMPLE.md"])
-def test_every_documented_call_matches_the_real_signature(doc):
+@pytest.mark.parametrize("where,doc", [(PKG, "README.md"), (PKG, "EXAMPLE.md"),
+                                       (ROOT, "README.md")],
+                         ids=["pkg-README", "pkg-EXAMPLE", "root-README"])
+def test_every_documented_call_matches_the_real_signature(where, doc):
     """Names existing is not enough: a call with an argument the function does not take fails the
     moment a reader pastes it. The examples use placeholder variables so they cannot be executed,
     but their call signatures can be bound against the real ones.
+
+    The ROOT README is checked too. It carries its own copy of the quickstart, and it is the first
+    thing a visitor sees, so an example that drifts from the API there is the most expensive one to
+    get wrong: it was outside this test until the repository was narrowed to the package.
     """
     import ast
     import inspect
 
     import groupeval
-    text = read(PKG, doc)
+    text = read(where, doc)
     public = {n: getattr(groupeval, n) for n in groupeval.__all__
               if callable(getattr(groupeval, n))}
     checked = 0

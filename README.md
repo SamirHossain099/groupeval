@@ -1,5 +1,8 @@
 # groupeval
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22347243.svg)](https://doi.org/10.5281/zenodo.22347243)
+[![ci](https://github.com/SamirHossain099/groupeval/actions/workflows/ci.yml/badge.svg)](https://github.com/SamirHossain099/groupeval/actions/workflows/ci.yml)
+
 **Evaluation that respects the group structure benchmarks actually have.**
 
 Most vision and medical-imaging benchmarks are built from *groups* (video frames of one lesion,
@@ -67,7 +70,25 @@ archives are not ours to redistribute.
 
 ## Citing
 
-See [`CITATION.cff`](CITATION.cff).
+Archived on Zenodo. Cite the **concept DOI**, which always resolves to the
+latest version:
+
+> Hossain, S. *groupeval: evaluation that respects the group structure benchmarks
+> actually have.* <https://doi.org/10.5281/zenodo.22347243>
+
+```bibtex
+@software{hossain_groupeval,
+  author  = {Hossain, Samir},
+  title   = {groupeval: evaluation that respects the group structure benchmarks actually have},
+  doi     = {10.5281/zenodo.22347243},
+  url     = {https://github.com/SamirHossain099/groupeval},
+  version = {0.1.0},
+  year    = {2026}
+}
+```
+
+Version 0.1.0 specifically is `10.5281/zenodo.22347244`. Machine-readable metadata is in
+[`CITATION.cff`](CITATION.cff).
 
 ## Licence
 

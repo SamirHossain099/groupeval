@@ -15,6 +15,17 @@ authors:
     affiliation: "Department of Electrical and Computer Engineering, Texas Tech University"
 version: 0.1.0
 license: MIT
+date-released: 2026-09-05
+doi: 10.5281/zenodo.22347243
+repository-code: "https://github.com/SamirHossain099/groupeval"
+url: "https://github.com/SamirHossain099/groupeval"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22347243
+    description: Concept DOI. Always resolves to the latest version; cite this one.
+  - type: doi
+    value: 10.5281/zenodo.22347244
+    description: DOI for version 0.1.0 specifically.
 keywords:
   - benchmark evaluation
   - data leakage
