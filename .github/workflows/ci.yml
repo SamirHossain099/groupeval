@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check groupeval
+      - name: Test
+        # Only the package, because the package is all this repository holds. The polyp
+        # benchmark audit that groupeval was extracted from is a separate deliverable; its suite
+        # needs 804 MB of non-redistributable archives and a GPU, so it could not run here anyway.
+        run: pytest groupeval/tests -q

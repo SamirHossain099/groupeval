@@ -1,0 +1,25 @@
+{
+  "upload_type": "software",
+  "title": "groupeval: evaluation that respects the group structure benchmarks actually have",
+  "description": "<p>Tools for benchmarks built from groups &mdash; video frames of one lesion, slices of one scan, crops of one slide, images of one patient &mdash; where scores are conventionally reported as if every file were an independent observation.</p><p>Provides exact duplicate audits, group-disjoint split construction with leakage assertions, cluster-bootstrap and paired intervals, and a variance decomposition that separates &ldquo;needs more compute&rdquo; from &ldquo;needs more data&rdquo;.</p><p>MIT-licensed and numpy-only. This is the reference implementation accompanying an independent audit of the standard polyp segmentation benchmark.</p>",
+  "creators": [
+    {
+      "name": "Hossain, Samir",
+      "orcid": "0009-0003-8986-0946",
+      "affiliation": "Department of Electrical and Computer Engineering, Texas Tech University, Lubbock, TX, USA"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "version": "0.1.0",
+  "language": "eng",
+  "keywords": [
+    "benchmark evaluation",
+    "data leakage",
+    "clustered data",
+    "confidence intervals",
+    "reproducibility",
+    "medical image segmentation",
+    "polyp segmentation"
+  ]
+}

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use groupeval, please cite it."
+title: "groupeval: evaluation that respects the group structure benchmarks actually have"
+abstract: >-
+  Tools for benchmarks built from groups (video frames of one lesion, slices of one scan, crops of
+  one slide, images of one patient) where scores are conventionally reported as if every file were
+  an independent observation. Provides exact duplicate audits, group-disjoint split construction
+  with leakage assertions, cluster-bootstrap and paired intervals, and a variance decomposition that
+  separates "needs more compute" from "needs more data".
+type: software
+authors:
+  - family-names: Hossain
+    given-names: Samir
+    orcid: "https://orcid.org/0009-0003-8986-0946"
+    affiliation: "Department of Electrical and Computer Engineering, Texas Tech University"
+version: 0.1.0
+license: MIT
+keywords:
+  - benchmark evaluation
+  - data leakage
+  - clustered data
+  - confidence intervals
+  - reproducibility
