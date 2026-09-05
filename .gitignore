@@ -72,3 +72,6 @@ requirements-audit.txt
 requirements-analysis.txt
 package.json
 package-lock.json
+
+# Local preview of the PyPI project page, generated for review; not part of the package.
+pypi-preview.html
