@@ -57,7 +57,7 @@ print(rows[-1])   # the assumption-free worst case
 **A confident interval is not the same as a robust result.** When one side of a comparison is a
 fixed subset of the data, no bootstrap explores which groups landed in it. `leave_one_group_out`
 drops each group in turn and tells you whether the sign survives: on the benchmark this package
-came from, a contrast of +0.132 with an interval of [+0.122, +0.142] reversed to −0.149 when one
+came from, a contrast of +0.133 with an interval of [+0.128, +0.138] reversed to −0.136 when one
 group was removed.
 
 ```python

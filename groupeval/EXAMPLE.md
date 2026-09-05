@@ -137,14 +137,14 @@ for name, d in sorted(r["without"].items(), key=lambda kv: kv[1]):
 ```
 
 ```
-+0.1320 overall, sign stable: False
-  without s5: -0.1487        <- one group, and the sign flips
-  without s4: +0.1739
-  without s6: +0.1828
++0.1330 overall, sign stable: False
+  without s5: -0.1363        <- one group, and the sign flips
+  without s4: +0.1761
+  without s6: +0.1815
 ```
 
-This is a real result from the benchmark this package came from: a contrast of **+0.132** with a
-bootstrap interval of **[+0.122, +0.142]** reversed to **−0.149** when a single group was removed,
+This is a real result from the benchmark this package came from: a contrast of **+0.133** with a
+bootstrap interval of **[+0.128, +0.138]** reversed to **−0.136** when a single group was removed,
 because 82% of the subset was that one group. `largest_share_fraction` reports that concentration
 directly, and it is usually the explanation when `sign_stable` is False.
 
