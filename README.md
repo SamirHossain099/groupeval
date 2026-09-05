@@ -2,6 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22347243.svg)](https://doi.org/10.5281/zenodo.22347243)
 [![ci](https://github.com/SamirHossain099/groupeval/actions/workflows/ci.yml/badge.svg)](https://github.com/SamirHossain099/groupeval/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/groupeval.svg)](https://pypi.org/project/groupeval/)
 
 **Evaluation that respects the group structure benchmarks actually have.**
 
@@ -20,10 +21,11 @@ judgement:
 ## Install
 
 ```bash
-pip install -e .
+pip install groupeval
 ```
 
-numpy is the only runtime dependency. Python 3.9+.
+numpy is the only runtime dependency. Python 3.9+. To work on the package itself, clone this
+repository and `pip install -e ".[dev]"` instead.
 
 ## Quickstart
 
