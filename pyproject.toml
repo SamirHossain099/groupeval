@@ -30,6 +30,12 @@ Archive = "https://doi.org/10.5281/zenodo.22347243"
 
 [tool.setuptools]
 packages = ["groupeval"]
+# MANIFEST.in exists to keep the audit's files out of the SDIST. With pyproject-based
+# setuptools, include-package-data defaults to true, so those same rules also fed the
+# WHEEL: the package's own tests and EXAMPLE.md started being installed into
+# site-packages, 30 KB of them, and falsified a comment in test_packaging.py that says
+# they are not shipped. Tests belong in the source distribution, not in the wheel.
+include-package-data = false
 
 [tool.ruff]
 line-length = 100
