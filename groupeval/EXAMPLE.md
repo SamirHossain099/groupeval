@@ -105,11 +105,11 @@ for row in independence_sensitivity(scores, suspect=unlabelled_items,
 ```
 
 ```
-as reported                        floor 0.00377  +/-0.00738
-50 groups (random assignment)      floor 0.00436  +/-0.00855
-25 groups (random assignment)      floor 0.00505  +/-0.00989
-10 groups (random assignment)      floor 0.00580  +/-0.01136
-excluded entirely (worst case)     floor 0.00654  +/-0.01281
+as reported                        floor 0.00408  +/-0.00799
+50 groups (random assignment)      floor 0.00477  +/-0.00936
+25 groups (random assignment)      floor 0.00536  +/-0.01051
+10 groups (random assignment)      floor 0.00608  +/-0.01192
+excluded entirely (worst case)     floor 0.00683  +/-0.01339
 ```
 
 **The last row is the one that matters.** Deleting the suspect items is strictly more pessimistic
